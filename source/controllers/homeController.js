@@ -75,4 +75,18 @@ app.controller('homeController', function($scope, $http, $modal, $routeParams, C
 	        }
 	    });
 	}
+	
+	$scope.openCV = function(role) { 
+		console.log("heo heo");
+		var modalInstance = $modal.open({
+	    templateUrl: 'views/CV.html',
+	    controller: 'modalInstanceCtrl', // call controller 
+	    size: 'lg',
+	    resolve: {
+	          data: function () {
+	            return {'role' : role};
+	          }
+	        }
+	    });
+	}
 });

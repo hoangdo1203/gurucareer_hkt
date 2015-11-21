@@ -266,3 +266,9 @@ div#map {
 	max-width: 800px !important;
 	min-width: 500px;
 }
+.q1 input[type="checkbox"], .q2 input[type="checkbox"], .q3 input[type="checkbox"] {
+	margin-left: 30px;
+}
+#4t {
+	width: 400px;
+}

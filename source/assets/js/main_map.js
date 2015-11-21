@@ -172,8 +172,8 @@ $(document).ready(function() {
 	    	}
 	      })(marker, i));
 	    }
-	   
-	    AutoCenter(map);
+	    if(markers.length > 0)
+	    	AutoCenter(map);
 	    // resize responsive
 	    /*google.maps.event.addDomListener(window, "resize", function() {
 	    	AutoCenter(map);
@@ -225,7 +225,9 @@ $(document).ready(function() {
 	      })(marker, i));
 	      showIdMarker(marker, locations[i]);
 	    }		
-		AutoCenter(map);
+
+	    if(markers.length > 0)
+	    	AutoCenter(map);
     }
 	
 	// show id tren home va marker
@@ -279,4 +281,10 @@ $(document).ready(function() {
 	    }
 	});	
 	
+	$(document).on("click", "#s-s", function() {
+		$("#s-CV").trigger("click");
+	});
+	$(document).on("click", "#s-CV", function() {
+		console.log("heo heo jquery!");	
+	});
 });
