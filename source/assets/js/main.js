@@ -152,13 +152,47 @@ if (!('webkitSpeechRecognition' in window)) {
         $(".s-loading").hide();
 		//End Loading
         interim_span.innerHTML = linebreak(interim_transcript);
-
+console.dir('test');
+console.dir(interim_transcript);
+controlvoice();
         var str = interim_transcript;
         var re = /(location (.*?)*)/i;
         var found = str.match(re);
-        if (found)
-            interim_location.innerHTML = linebreak(interim_transcript);
+        if (found) {
+			interim_location.innerHTML = linebreak(interim_transcript);
+		}
+            
     };
+	function controlvoice() {
+		var str = convertVnToE(document.getElementById("final_span").value);		
+		// console.log(str);
+		if(str.indexOf("xoa") >= 0) { 
+			document.getElementById("final_span").value = "";
+		} else if(str.indexOf("tim kiem") >= 0) { 	
+			$('#final_span').val(function(index, value) {
+			   str = str.replace('tim kiem', '');
+			   return $.trim(str);
+			});
+			// console.log("kiá»ƒm tra:" + $("#final_span").val());
+			// $("#final_span").val(str);
+			$(".btn-search").trigger("click");
+			$(".btn-search").trigger("click"); // ? note i also don't understand
+		}
+	}
+	function convertVnToE(str) { 		
+		str= str.toLowerCase();
+		str= str.replace(/Ã |Ã¡|áº¡|áº£|Ã£|Ã¢|áº§|áº¥|áº­|áº©|áº«|Äƒ|áº±|áº¯|áº·|áº³|áºµ/g,"a");
+		str= str.replace(/Ã¨|Ã©|áº¹|áº»|áº½|Ãª|á»�|áº¿|á»‡|á»ƒ|á»…/g,"e");
+		str= str.replace(/Ã¬|Ã­|á»‹|á»‰|Ä©/g,"i");
+		str= str.replace(/Ã²|Ã³|á»�|á»�|Ãµ|Ã´|á»“|á»‘|á»™|á»•|á»—|Æ¡|á»�|á»›|á»£|á»Ÿ|á»¡/g,"o");
+		str= str.replace(/Ã¹|Ãº|á»¥|á»§|Å©|Æ°|á»«|á»©|á»±|á»­|á»¯/g,"u");
+		str= str.replace(/á»³|Ã½|á»µ|á»·|á»¹/g,"y");
+		str= str.replace(/Ä‘/g,"d");
+		str= str.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\'| |\"|\&|\#|\[|\]|~/g," ");
+		str= str.replace(/ + /g," "); 
+		str= str.replace(/^\-+|\-+$/g,"");
+		return str;
+	}
 }
 
 function upgrade() {

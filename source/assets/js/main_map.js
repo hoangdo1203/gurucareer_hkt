@@ -18,8 +18,6 @@ $(document).ready(function() {
 	var markers = new Array();	
 	
 	$(document).on("click", ".btn-search", function() {
-		var str = convertVnToE(document.getElementById("final_span").value);
-		str = str.replace('tim kiem', '');
 		var html_filter = $('.filterData').html();
 		clearMarkers();
 		deleteMarkers();
@@ -274,23 +272,6 @@ $(document).ready(function() {
 	    	$(".btn-search").trigger("click");	    
 	    }
 	});	
-	
-	setInterval(function() {
-		var str = convertVnToE(document.getElementById("final_span").value);		
-		// console.log(str);
-		if(str.indexOf("xoa") >= 0) { 
-			document.getElementById("final_span").value = "";
-		} else if(str.indexOf("tim kiem") >= 0) { 	
-			$('#final_span').val(function(index, value) {
-			   str = str.replace('tim kiem', '');
-			   return $.trim(str);
-			});
-			// console.log("kiá»ƒm tra:" + $("#final_span").val());
-			// $("#final_span").val(str);
-			$(".btn-search").trigger("click");
-			$(".btn-search").trigger("click"); // ? note i also don't understand
-		}
-	}, 500);	
 	function convertVnToE(str) { 		
 		str= str.toLowerCase();
 		str= str.replace(/Ã |Ã¡|áº¡|áº£|Ã£|Ã¢|áº§|áº¥|áº­|áº©|áº«|Äƒ|áº±|áº¯|áº·|áº³|áºµ/g,"a");
