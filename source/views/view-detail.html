@@ -1,11 +1,10 @@
-<div ng-include src="'views/header.html'"></div>
-<div class="main" style="padding-top: 30px">
-	<div class="container">
-		<div class="col-md-12 bg-white" style="padding-bottom: 15px">
-		
-			<div class="col-md-2">
+<div class="modal-body">
+		<button type="button" class="close" ng-click="cancel()">×</button>
+    <form class="form-horizontal">
+		  <div class="form-group">
+		    <div class="col-md-2">
 				<br><br>
-				<img width="155px" alt="" ng-src="{{company.imageUrl}}"> 
+				<img width="130px" alt="" ng-src="{{company.imageUrl}}"> 
 			</div>
 			
 			<div class="col-md-7">
@@ -22,26 +21,23 @@
 				<button class="btn btn-apply btn-interested">I'm interested</button>
 				<p style="color: #ccc;">319 Views Posted    &nbsp;   &nbsp;&nbsp;     1 days ago</p>
 			</div>
-		</div>
-		
-		<div class="col-md-12 top20 main-detail">
-			<div class="col-md-8 main-detail-left">
-				<div class="col-md-12 bg-white  top20" style="padding-bottom: 15px">
+		  </div>
+		  <hr style="margin-bottom:0px">
+		  <div class="form-group">
+		    <div class="col-md-8 main-detail-left">
+				<div class="col-md-12 bg-white detail-frame">
 						<h3>Truc, What We Can Offer</h3>
 						<span>Được hưởng lương, thưởng và các cơ chế khuyến khích hấp dẫn theo kết quả hoạt động kinh doanh</span>
 				</div>
-				
-				<div class="col-md-12 bg-white  top20" style="padding-bottom: 15px">
+				<div class="col-md-12 bg-white detail-frame">
 					<h3>You Should Be Best At </h3>
 					<span>	Dịch Vụ Khách Hàng  Ngân Hàng  Quản Lý Khách Hàng </span>
 				</div>
-				
-				<div class="col-md-12 bg-white  top20" style="padding-bottom: 15px">
+				<div class="col-md-12 bg-white detail-frame">
 					<h3>What You Will Do</h3>
 					<span>Chi tiết đăng trên trang web BIDV tại địa chỉ www.bidv.com.vn và http://tuyendung.bidv.com.vn.</span>
 				</div>
-				
-				<div class="col-md-12 bg-white  top20" style="padding-bottom: 15px">
+				<div class="col-md-12 bg-white detail-frame">
 					<h3>What You Are Good At</h3>
 					<p><strong>HÌNH THỨC THI TUYỂN: </strong></p>
 					<p>- Vòng 1: Sơ loại hồ sơ</p>
@@ -64,8 +60,7 @@
 					<p>Thí sinh trực tiếp đến nộp hồ sơ (không nhận hồ sơ nộp hộ hoặc gửi qua đường bưu điện).</p>
 					<p>(Hội đồng tuyển dụng chỉ liên lạc với các ứng viên đạt yêu cầu tại vòng sơ tuyển hồ sơ. Không hoàn lại hồ sơ nếu không trúng tuyển)</p>
 				</div>
-				
-				<div class="col-md-12 bg-white  top20"  style="padding-bottom: 15px">
+				<div class="col-md-12 bg-white detail-frame">
 					<h3>About Our Company</h3>
 					<p>Ngân Hàng TMCP Đầu Tư Và Phát Triển Việt Nam</p>
 					<p>Tháp BIDV, 35 Hàng Vôi, Hoàn Kiếm, Hà Nội</p>
@@ -74,8 +69,8 @@
 					
 					<p>Ngân hàng TMCP Đầu tư và Phát triển Việt Nam (BIDV) thông báo tuyển dụng vị trí 01 cộng tác viên làm nhiệm vụ triển khai các chiến dịch gọi ra (outbound) làm việc tại Trung tâm chăm sóc khách hàng, cụ thể như sau:</p>
 				</div>
-				
-				<div class="col-md-12 bg-white  top20">
+				 <hr>
+				<div class="col-md-12 bg-white">
 				
 					<div class="col-md-12" style="padding-left: 0px">
 						<div class="col-md-6 text-left"  style="padding-left: 0px">
@@ -223,7 +218,7 @@
 				<div class="col-md-12 bg-white  top20" style="padding: 15px">
 						<span>This job matches 0% your profile Powered by MATCHINGSCORE</span>
 				</div>
-				
+				<hr>
 				<div class="col-md-12 bg-white  top20">
 						<h3>Truc, Consider To</h3>
 						<p>Truc, Consider To</p>
@@ -234,7 +229,7 @@
 						<p>Refer to a friend</p>
 						<p>Share on   </p>
 				</div>
-				
+				<hr>
 				<div class="col-md-12 bg-white  top20">
 						<h3>Summary Job Details</h3>
 						<p>Job Level</p>
@@ -247,8 +242,10 @@
 						<p>Any</p>
 				</div>
 			</div>
-		</div>
-	</div>
+		  </div>
+		</form>
+</div>
+<div class="modal-footer ng-scope">
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
 </div>
 
-<div ng-include src="'views/footer.html'"></div>

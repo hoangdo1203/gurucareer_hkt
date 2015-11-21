@@ -92,7 +92,7 @@
 	            <div class="datas right clearfix s-croll-x-570">
 		        <!--  div ng-repeat="data in filteredData = (datas|filter:search|limitTo:10)" class="thumbnail s-data"-->
 		        <div ng-repeat="data in filteredData = (datas|filter:filterSearch|limitTo:10)" class="thumbnail s-data">          
-			          <a href="#/detail/{{data.id}}">{{data.name}}</a>
+			          <a href="" ng-click="openCompany(data.id)">{{data.name}}</a>
 			          <div><label>{{data.position}}</label></div>
 			          <div>Posted: {{data.posted}} | Views: {{data.views}}</div>
 			          <div class="s-d-img"><img ng-src="{{data.imageUrl}}" class="s-rgt-logo" /></div>			  

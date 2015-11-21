@@ -1,10 +1,12 @@
 app.controller('homeController', function($scope, $http, $modal, $routeParams, CommonSV) {
 	if(CommonSV.getItem('role') == undefined)
 		CommonSV.logout();
-		//$scope.role = CommonSV.getItem('role');
+	else
+		$scope.role = CommonSV.getItem('role');
 	
 	$http.get('data/task.json').success(function(data) {
 		$scope.datas = data;
+		CommonSV.setItem('companies', data);
     });
 	
 	$scope.searchJob = function() {
@@ -38,4 +40,25 @@ app.controller('homeController', function($scope, $http, $modal, $routeParams, C
 		str= str.replace(/^\-+|\-+$/g,"");
 		return str;
 	}
+
+	$scope.openCompany = function (com_id) {
+		$scope.datas = CommonSV.getItem('companies');
+
+		angular.forEach($scope.datas, function(data){
+			if(data.id == com_id){
+				$scope.company = data;
+			}
+		});
+
+	  var modalInstance = $modal.open({
+	    templateUrl: 'views/view-detail.html',
+	    controller: 'modalInstanceCtrl', // call controller 
+	    size: 'lg',
+	    resolve: {
+	          data: function () {
+	            return {'company' : $scope.company};
+	          }
+	        }
+	    });
+	};
 });
