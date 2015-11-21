@@ -61,4 +61,18 @@ app.controller('homeController', function($scope, $http, $modal, $routeParams, C
 	        }
 	    });
 	};
+
+	$scope.openSchedule = function(role){
+		$scope.showMenu = !$scope.showMenu;
+		var modalInstance = $modal.open({
+	    templateUrl: 'views/schedule.html',
+	    controller: 'modalInstanceCtrl', // call controller 
+	    size: 'lg',
+	    resolve: {
+	          data: function () {
+	            return {'role' : role};
+	          }
+	        }
+	    });
+	}
 });
