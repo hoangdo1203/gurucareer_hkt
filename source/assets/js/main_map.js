@@ -41,7 +41,7 @@ $(document).ready(function() {
             var json_length = data.length;
             for(i=0; i<json_length; i++) {
            	 	json_data = data[i];
-           	 	str_ctn = '<div class="s-infobox s-pad-r-400"><div class="s-d-logo"><img src="' + json_data.imageUrl + '" class="s-logo" /></div> <div><label class="s-lft-5">Salary: ' + json_data.salary + '</label><br /><b>' + json_data.company + '</b><br /><b>' + json_data.name + '</b><br />Address: ' + json_data.address + '<br />Distance: 20km<br /><a target="blank" href="#/detail">View Details</a></div></div>';
+           	 	str_ctn = '<div class="s-infobox s-pad-r-400"><div class="s-d-logo"><img src="' + json_data.imageUrl + '" class="s-logo" /></div> <div><label class="s-lft-5">Salary: ' + json_data.salary + '</label><br /><b>' + json_data.company + '</b><br /><b>' + json_data.name + '</b><br />Address: ' + json_data.address + '<br />Distance: 20km<br /><a ng-click="openCompany(' + json_data.id + ')">View Details</a></div></div>';
            	 	contents.push(str_ctn);
            	 	
            	 	childs_locations = [json_data.company, json_data.lat, json_data.lgn, str_ctn,  json_data.id];
@@ -58,7 +58,7 @@ $(document).ready(function() {
 		            var json_length = data.length; 
 		            for(i=0; i<json_length; i++) {
 		           	 	json_data = data[i];
-		           	 	str_ctn = '<div class="s-infobox"><div class="s-d-logo"><img src="' + json_data.imageUrl + '" class="s-logo" /></div> <div><label class="s-lft-5">Salary: ' + json_data.salary + '</label><br /><b>' + json_data.company + '</b><br /><b>' + json_data.name + '</b><br />Address: ' + json_data.address + '<br />Distance: 20km<br /><a target="blank" href="#/detail">View Details</a></div></div>';
+		           	 	str_ctn = '<div class="s-infobox"><div class="s-d-logo"><img src="' + json_data.imageUrl + '" class="s-logo" /></div> <div><label class="s-lft-5">Salary: ' + json_data.salary + '</label><br /><b>' + json_data.company + '</b><br /><b>' + json_data.name + '</b><br />Address: ' + json_data.address + '<br />Distance: 20km<br /><a ng-click="openCompany(' + json_data.id + ')">View Details</a></div></div>';
 		           	 	contents.push(str_ctn);
 		           	 	
 		           	 	childs_locations = [json_data.company, json_data.lat, json_data.lgn, str_ctn,  json_data.id];
@@ -164,8 +164,7 @@ $(document).ready(function() {
 	      // show infowindow when click
 	      google.maps.event.addListener(marker, 'click', (function(marker, i) {
 	    	return function() { 
-	    	  // show salary or name    	  
-	    	  
+	    	  // show salary or name    
 	    	  infowindow.setContent(locations[i][3]);
 	    	  infowindow.open(map, marker);
 	    	  calcRoute(locations[i][1], locations[i][2], map);
@@ -242,8 +241,9 @@ $(document).ready(function() {
     } 
 	
 	/* update */
-	function moveToLocation(marker, map){ 		
-		map.setCenter(marker.getPosition())
+	function moveToLocation(marker, map) { 	
+		map.setZoom(6);
+		map.setCenter(marker.getPosition());		
 	} 	
 	function setMapMarker(markerSingle, map) { 	 
 		markerSingle.setMap(map);
