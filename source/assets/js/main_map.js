@@ -272,18 +272,5 @@ $(document).ready(function() {
 	    	$(".btn-search").trigger("click");	    
 	    }
 	});	
-	function convertVnToE(str) { 		
-		str= str.toLowerCase();
-		str= str.replace(/Ã |Ã¡|áº¡|áº£|Ã£|Ã¢|áº§|áº¥|áº­|áº©|áº«|Äƒ|áº±|áº¯|áº·|áº³|áºµ/g,"a");
-		str= str.replace(/Ã¨|Ã©|áº¹|áº»|áº½|Ãª|á»�|áº¿|á»‡|á»ƒ|á»…/g,"e");
-		str= str.replace(/Ã¬|Ã­|á»‹|á»‰|Ä©/g,"i");
-		str= str.replace(/Ã²|Ã³|á»�|á»�|Ãµ|Ã´|á»“|á»‘|á»™|á»•|á»—|Æ¡|á»�|á»›|á»£|á»Ÿ|á»¡/g,"o");
-		str= str.replace(/Ã¹|Ãº|á»¥|á»§|Å©|Æ°|á»«|á»©|á»±|á»­|á»¯/g,"u");
-		str= str.replace(/á»³|Ã½|á»µ|á»·|á»¹/g,"y");
-		str= str.replace(/Ä‘/g,"d");
-		str= str.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\'| |\"|\&|\#|\[|\]|~/g," ");
-		str= str.replace(/ + /g," "); 
-		str= str.replace(/^\-+|\-+$/g,"");
-		return str;
-	}
+	
 });

@@ -117,7 +117,7 @@ if (!('webkitSpeechRecognition' in window)) {
             window.getSelection().addRange(range);
         }
     };
-
+	var flagFindCtr = false;
     recognition.onresult = function (event) {
 		//Begin Loading
     	$(".s-loading").show();
@@ -148,46 +148,59 @@ if (!('webkitSpeechRecognition' in window)) {
         //final_transcript = capitalize(final_transcript);
         text_final = capitalize(text_final);
 //        final_span.innerHTML = linebreak(final_transcript);
-        $("#final_span").val(linebreak(text_final));
+        
         $(".s-loading").hide();
 		//End Loading
         interim_span.innerHTML = linebreak(interim_transcript);
-console.dir('test');
-console.dir(interim_transcript);
-controlvoice();
-        var str = interim_transcript;
-        var re = /(location (.*?)*)/i;
-        var found = str.match(re);
-        if (found) {
-			interim_location.innerHTML = linebreak(interim_transcript);
+		
+		console.dir(interim_transcript);
+		// treatment
+		if (text_final == "") {
+			
+			
 		}
+		// finish
+		else {
+			console.dir("final != 0 "+ text_final);
+			if (flagFindCtr != true) {
+				var str = convertVnToE(text_final);
+				console.dir("sau convertVNtoE");
+				console.dir("--->"+str);
+				console.dir(str.indexOf("xoa"));
+				if (str.indexOf("xoa")!= -1) {
+					console.dir("tim thay");
+					document.getElementById("final_span").value = "";
+					flagFindCtr = true;
+				}
+				else if (str.indexOf("tim kiem") != -1) {
+					$(".btn-search").trigger("click");
+					$(".btn-search").trigger("click");
+					flagFindCtr = true;
+				}
+			}
+			
+			//alert("finish");
+			if (flagFindCtr != true) {
+				$("#final_span").val(linebreak(text_final));
+				$(".btn-search").trigger("click");
+				$(".btn-search").trigger("click");
+			}
+			// reset flag
+			flagFindCtr = false;
+			console.dir("finish");
+		}
+       
             
     };
-	function controlvoice() {
-		var str = convertVnToE(document.getElementById("final_span").value);		
-		// console.log(str);
-		if(str.indexOf("xoa") >= 0) { 
-			document.getElementById("final_span").value = "";
-		} else if(str.indexOf("tim kiem") >= 0) { 	
-			$('#final_span').val(function(index, value) {
-			   str = str.replace('tim kiem', '');
-			   return $.trim(str);
-			});
-			// console.log("kiá»ƒm tra:" + $("#final_span").val());
-			// $("#final_span").val(str);
-			$(".btn-search").trigger("click");
-			$(".btn-search").trigger("click"); // ? note i also don't understand
-		}
-	}
 	function convertVnToE(str) { 		
 		str= str.toLowerCase();
-		str= str.replace(/Ã |Ã¡|áº¡|áº£|Ã£|Ã¢|áº§|áº¥|áº­|áº©|áº«|Äƒ|áº±|áº¯|áº·|áº³|áºµ/g,"a");
-		str= str.replace(/Ã¨|Ã©|áº¹|áº»|áº½|Ãª|á»�|áº¿|á»‡|á»ƒ|á»…/g,"e");
-		str= str.replace(/Ã¬|Ã­|á»‹|á»‰|Ä©/g,"i");
-		str= str.replace(/Ã²|Ã³|á»�|á»�|Ãµ|Ã´|á»“|á»‘|á»™|á»•|á»—|Æ¡|á»�|á»›|á»£|á»Ÿ|á»¡/g,"o");
-		str= str.replace(/Ã¹|Ãº|á»¥|á»§|Å©|Æ°|á»«|á»©|á»±|á»­|á»¯/g,"u");
-		str= str.replace(/á»³|Ã½|á»µ|á»·|á»¹/g,"y");
-		str= str.replace(/Ä‘/g,"d");
+		str= str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a");
+		str= str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e");
+		str= str.replace(/ì|í|ị|ỉ|ĩ/g,"i");
+		str= str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o");
+		str= str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u");
+		str= str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y");
+		str= str.replace(/đ/g,"d");
 		str= str.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\'| |\"|\&|\#|\[|\]|~/g," ");
 		str= str.replace(/ + /g," "); 
 		str= str.replace(/^\-+|\-+$/g,"");
