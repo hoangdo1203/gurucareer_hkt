@@ -21,7 +21,7 @@ $(document).ready(function() {
 		var html_filter = $('.filterData').html();
 		clearMarkers();
 		deleteMarkers();
-		showKeySearch(html_filter);
+		showKeySearch(html_filter);		
 	});
 	
 	function showKeySearch(html_filter) { 			
@@ -41,7 +41,7 @@ $(document).ready(function() {
             var json_length = data.length;
             for(i=0; i<json_length; i++) {
            	 	json_data = data[i];
-           	 	str_ctn = '<div class="s-infobox"><div class="s-d-logo"><img src="' + json_data.imageUrl + '" class="s-logo" /></div> <div><label class="s-lft-5">Salary: ' + json_data.salary + '</label><br /><b>' + json_data.company + '</b><br /><b>' + json_data.name + '</b><br />Address: ' + json_data.address + '<br />Distance: 20km<br /><a target="blank" href="#/detail">View Details</a></div></div>';
+           	 	str_ctn = '<div class="s-infobox s-pad-r-400"><div class="s-d-logo"><img src="' + json_data.imageUrl + '" class="s-logo" /></div> <div><label class="s-lft-5">Salary: ' + json_data.salary + '</label><br /><b>' + json_data.company + '</b><br /><b>' + json_data.name + '</b><br />Address: ' + json_data.address + '<br />Distance: 20km<br /><a target="blank" href="#/detail">View Details</a></div></div>';
            	 	contents.push(str_ctn);
            	 	
            	 	childs_locations = [json_data.company, json_data.lat, json_data.lgn, str_ctn,  json_data.id];
@@ -165,18 +165,7 @@ $(document).ready(function() {
 	      google.maps.event.addListener(marker, 'click', (function(marker, i) {
 	    	return function() { 
 	    	  // show salary or name    	  
-	    	  /*if($(".s-company-name").is(":checked") && $(".s-salary").is( ":checked" )) {
-	    		  infowindow.setContent(locations[i][0] + "<br />" + locations[i][3]);
-	    	  } else {
-	    		  if($(".s-company-name").is(":checked"))
-	    			  infowindow.setContent(locations[i][0]);
-	    		  if($(".s-salary").is( ":checked" ))
-	    			  infowindow.setContent(locations[i][3]);
-	    	  }*/
-	    	  /*$(".s-dtl-company").html(locations[i][4]);
-	    	  $(".s-dtl-company").show();*/
-			  
-			  // show detail company
+	    	  
 	    	  infowindow.setContent(locations[i][3]);
 	    	  infowindow.open(map, marker);
 	    	  calcRoute(locations[i][1], locations[i][2], map);
@@ -223,18 +212,34 @@ $(document).ready(function() {
 	    	icon: 'assets/img/company-marker.png'
 	      });
 	      markers.push(marker);
+	      
+	      showIdMarker(marker, locations[i]);	      
 	      google.maps.event.addListener(marker, 'click', (function(marker, i) {
 	    	return function() { 		    	  
 			  // show detail company
 	    	  infowindow.setContent(locations[i][3]);
 	    	  infowindow.open(map, marker);
+	    	  
 	    	  calcRoute(locations[i][1], locations[i][2], map);
 			  moveToLocation(marker, map);
 	    	}
 	      })(marker, i));
-	    }
+	      showIdMarker(marker, locations[i]);
+	    }		
 		AutoCenter(map);
     }
+	
+	// show id tren home va marker
+	function showIdMarker(marker, locations) { 	
+		var latlgn =  new google.maps.LatLng(locations[1], locations[2]);
+		var ifw = new google.maps.InfoWindow();
+		ifw = new google.maps.InfoWindow({
+			 content: (locations[4]).toString(),
+			 closeBoxURL: "",
+			 maxWidth: 160
+		 });
+		ifw.open(map, marker);
+    } 
 	
 	/* update */
 	function moveToLocation(marker, map){ 		
@@ -266,6 +271,7 @@ $(document).ready(function() {
 	  });
 	  markers.push(marker);
 	}
+	
 	/* update */
 	$("#final_span").keypress(function(e) {
 	    if(e.which == 13) {

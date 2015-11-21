@@ -259,3 +259,10 @@ div#map {
 	padding-left: 0px;
 	padding-right: 0px;
 }
+.s-pad-r-400 {
+	width: 100% !important;
+}
+.gm-style-iw {
+	max-width: 800px !important;
+	min-width: 500px;
+}
