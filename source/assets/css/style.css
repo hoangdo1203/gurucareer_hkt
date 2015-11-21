@@ -251,3 +251,11 @@ div#map {
 	left: 50%;
 	margin-left: -8px;
 }
+.s-w {
+	color: #ffffff;
+}
+.s-left {
+	text-align: left;
+	padding-left: 0px;
+	padding-right: 0px;
+}
