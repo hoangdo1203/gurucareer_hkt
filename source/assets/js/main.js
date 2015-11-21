@@ -120,7 +120,7 @@ if (!('webkitSpeechRecognition' in window)) {
       ignore_onend = true;
     }
     if (event.error == 'not-allowed') {
-      if (event.timeStamp - start_timestamp < 100) {
+      if (event.timeStamp - start_timestamp < 99999) {
         showInfo('info_blocked');
       } else {
         showInfo('info_denied');
@@ -176,14 +176,20 @@ if (!('webkitSpeechRecognition' in window)) {
       //showButtons('inline-block');
     }
 	
-	if (interim_transcript == "") {
-		console.dir("text_final rong:"+interim_transcript);
+	controlV(interim_transcript);
+	
+  };
+}
+
+function controlV(strV){
+	if (strV == "") {
+		console.dir("text_final rong:"+strV);
 		
 	}
 	// finish
 	else {
-		console.dir("final != rong: "+ interim_transcript);
-		var text_final = interim_transcript;
+		console.dir("final != rong: "+ strV);
+		var text_final = strV;
 		if (flagFindCtr != true) {
 			var str = convertVnToE(text_final);
 			console.dir("sau convertVNtoE");
@@ -212,10 +218,7 @@ if (!('webkitSpeechRecognition' in window)) {
 		flagFindCtr = false;
 		console.dir("finish");
 	}
-	
-  };
 }
-
 function upgrade() {
   start_button.style.visibility = 'hidden';
   showInfo('info_upgrade');
@@ -264,7 +267,7 @@ function emailButton() {
   email_info.style.display = 'inline-block';
   showInfo('');
 }
-
+recognition.start();
 function startButton(event) {
   if (recognizing) {
     recognition.stop();
