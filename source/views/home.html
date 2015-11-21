@@ -1,0 +1,123 @@
+<div  ng-controller="homeController">
+	<div class="container">
+	    <div class="row">
+	        <div class="img pull-left">
+	            <a href="http://localhost/hackathon/source/#/"><img alt="" src="assets/img/logo.png"> </a>
+	        </div>
+	        <div class="text-center">
+	            <h1></h1>
+	        </div>
+	        <div class="pull-right">
+	            <div ng-include src="'views/menu.html'"></div>
+	        </div>
+	    </div>
+	</div>
+	<div id="info" style="display:none;">
+	  <p id="info_start">Click on the microphone icon and begin speaking.</p>
+	  <p id="info_speak_now">Speak now.</p>
+	  <p id="info_no_speech">No speech was detected. You may need to adjust your
+	    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+	      microphone settings</a>.</p>
+	  <p id="info_no_microphone" style="display:none">
+	    No microphone was found. Ensure that a microphone is installed and that
+	    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+	    microphone settings</a> are configured correctly.</p>
+	  <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+	  <p id="info_denied">Permission to use microphone was denied.</p>
+	  <p id="info_blocked">Permission to use microphone is blocked. To change,
+	    go to chrome://settings/contentExceptions#media-stream</p>
+	  <p id="info_upgrade">Web Speech API is not supported by this browser.
+	     Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+	     version 25 or later.</p>
+	</div>
+	<div class="center" style="display:none;">
+	  <p>
+	  <div id="div_language">
+	    <select id="select_language" onchange="updateCountry()"></select>
+	    &nbsp;&nbsp;
+	    <select id="select_dialect"></select>
+	  </div>
+	</div>
+	<div class="main">
+	    <div class="container">
+	        <div class="col-md-7">
+	            <!--Sidebar content-->
+	            <br>
+	            <!--input type="checkbox" class="s-salary" checked /> <label class="s-ver-mid">Salary</label>
+	            <input type="checkbox" class="s-company-name" /> <label class="s-ver-mid">Company name</label -->
+	            <div class="left left-bottom s-map">
+	                <div id="map"></div>
+	            </div>      
+	        </div>
+	
+	
+	        <div class="col-md-5">
+	            <!--Body content-->
+	            <br>
+	            <div class="seek-job">
+	                <div  class="form-inline">
+	                    <div  class="col-md-12">
+	                        <span id="interim_span" class="interim" style="display:none;"></span>
+	                        <input id="final_span" class="final" ng-model="searchModel" type="text" placeholder="Enter job title, position, relevant skills,...">
+	                        <button id="start_button" onclick="startButton(event)" style="display: inline-block;">
+	                        <img id="start_img" src="assets/img/mic.gif" alt="Start"></button>	                        
+	                    </div>
+	
+	                    <!--  div  class="col-md-4">
+	                            <input type="text" class="" placeholder="Any location">
+	                    </div-->
+	                </div>
+	                <div  class="form-inline">
+	                    <!--  div  class="col-md-4">
+	                    <input type="text" placeholder="All categories">
+	                </div>
+	                
+	                <div  class="col-md-4">
+	                            <input type="text" placeholder="Minimum monthly salary (USD)">
+	                </div>
+	                
+	                <div  class="col-md-4">
+	                    <input type="text"placeholder="All job level">
+	                </div-->
+	                </div>
+	                <div  class="form-inline clearfix">
+	                    <div  class="col-md-12">
+	                        <button type="button" class="btn-search btn btn-primary pull-right" ng-click="searchJob()">Search</button>
+	                    </div>
+	                </div>
+	            </div>
+	
+	
+	
+	            <div class="datas right clearfix s-croll-x-570">
+		        <!--  div ng-repeat="data in filteredData = (datas|filter:search|limitTo:10)" class="thumbnail s-data"-->
+		        <div ng-repeat="data in filteredData = (datas|filter:filterSearch|limitTo:10)" class="thumbnail s-data">          
+			          <a href="#/detail/{{data.id}}">{{data.name}}</a>
+			          <div><label>{{data.position}}</label></div>
+			          <div>Posted: {{data.posted}} | Views: {{data.views}}</div>
+			          <div class="s-d-img"><img ng-src="{{data.imageUrl}}" class="s-rgt-logo" /></div>			  
+		          <div class="clearfix"></div>
+		        </div>        
+		      </div> 
+			  <textarea class="filterData">{{filteredData}}</textarea>    
+	            <ul class="pagination">
+	                <li><a>Previous</a></li>
+	                <li><a>1</a></li>
+	                <li><a>2</a></li>
+	                <li><a>3</a></li>
+	                <li><a>4</a></li>
+	                <li><a>5</a></li>
+	                <li><a>6</a></li>
+	                <li><a>7</a></li>
+	                <li><a>8</a></li>
+	                <li><a>...</a></li>
+	                <li><a>Next</a></li>
+	            </ul>
+	        </div>
+	        <img src="assets/img/loading.gif" class="s-loading" />
+	    </div>
+	    <br>
+	</div>
+	<script type="text/javascript" src="assets/js/main_map.js"></script>
+	<div ng-include src="'views/footer.html'"></div>
+</div>

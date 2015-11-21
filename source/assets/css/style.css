@@ -1,0 +1,250 @@
+/* app css stylesheet */
+/* Truc style */
+body {
+  padding-top: 20px;
+}
+.bg-white{
+	background-color: #fff;
+}
+.top10{
+	margin-top: 10px;
+}
+.top20{
+	margin-top: 20px;
+}
+.main{
+	background: #ebebeb;
+	padding-top: 10px;
+}
+footer {
+    border-top: 1px solid #d5d5d5;
+    background: #e2e2e2;
+    padding: 15px 0 30px 0;
+    width: 100%;
+    bottom: 0;
+}
+footer a {
+    color: #555;
+}
+.left, .right{
+	width: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+}
+.login{
+	background-color: rgba(255, 255, 255, 0.5);
+    padding: 40px 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.seek-job{
+	padding:15px 10px 10px 15px;
+	background: #00b9f2;
+	height: 136px;
+}
+.seek-job .form-inline div{
+	padding: 5px 5px 5px 0px;
+}
+.seek-job input{
+	width: 80%;
+	border: 1px solid #ccc;
+	padding: 5px;
+	height: 33px;
+}
+.seek-job .btn-search{
+	background-color: #e38008;
+    border: 1px solid #fff;
+    font-weight: 700;
+    width: 200px;
+}
+.thumbnail{
+	border-top: none;
+	border-radius: 0px;
+}
+.thumbnail a{
+	color: red;
+	font-size: 17px;
+}
+.main-detail{
+	padding: 0px;
+	margin-bottom: 30px;
+}
+.main-detail-left{
+	padding:0px;
+}
+.main-detail-right{
+	padding-right: 0px;
+}
+.home-social a.blog {
+    color: #00b9f2;
+}
+.home-social a.linkedin {
+    background-position: -40px -115px;
+}
+.home-social a.google-plus {
+    background-position: -80px -115px;
+}
+.home-social a.facebook {
+    background-position: -120px -115px;
+}
+.home-social a.twitter {
+    background-position: -160px -115px;
+}
+.home-social a.slideshare {
+    background-position: -200px -115px;
+}
+.home-social a.instagram {
+    background-position: -240px -115px;
+}
+.home-social a {
+    display: inline-block;
+    width: 36px;
+    height: 35px;
+    margin-right: 2px;
+    background: url(../img/home-sprite.png) no-repeat 0 -115px;
+}
+.commnent .date{
+	font-size: 12px;
+	font-style: italic;
+	color: #ccc;
+}
+.fa-star{
+	color: rgba(222, 222, 11, 0.83);
+}
+.btn.btn-apply{
+	width: 150px;
+	height: 40px;
+	border-radius:1px;
+	margin: 5px;
+}
+.btn-apply{
+	background-color: orange;
+}
+.btn-interested{
+	border: 1px solid #ccc;
+	background-color: #ECECEC;
+}
+.btn-send-comment{
+	width: 150px;
+	height: 40px;
+}
+i{
+padding-top: 15px;
+padding-left: 2px;
+}
+.menu-toggle {
+    display: block;
+    width: 46px;
+    height: 46px;
+    position: relative;
+    background: url(http://images.vietnamworks.com/img/sprite.png) 0 -60px no-repeat;
+}
+.icon-notification {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAMAAADzapwJAAAATlBMVEUAAAD/////////////////////////////////////////////////Nzf/////y8v/QUH/4OD/U1P/Y2P/PDz/hob/h4f/gID/aWn/OzvKS3FkAAAADXRSTlMAvh4I29WhmPte9INmRQJ71wAAAJ1JREFUGNN1kUkOwyAQBIew26ZZDLbz/49GkScoQaSOdRhNd9ON9EY5p4yX9MWqwai1y4cA4lFqLUcExIOtRr4Cc2Xo2wvEFDopQrytRWbLPsMSSWAPP+yAJI8YBiI8GbRRNxhSKKMuUORQR13haEGaaT0/YnCO+oShbfbg9ifOPPy8ql7s3i/cxfYZWnmm0ngGxqJjiekTL9p+Jn4BxYYUCIyUxmoAAAAASUVORK5CYII=) center center no-repeat;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+    font-size: 11px;
+}
+.menu-toggle .icon-notification {
+    position: absolute;
+    top: -5px;
+    right: -11px;
+}
+.table-schedule tr td{
+	padding-top: 25px !important;
+}
+#start_button{
+	border-radius: 10px;
+    margin-left: 15px;
+}
+#start_button #start_img{
+	width: 28px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+/* Sang style */
+div#map {
+   display: block;
+   width: 100%;
+   height: 765px;
+}
+.option {
+	width: 100%;
+	min-height: 10%;
+}
+.fields {		
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border: 1px solid #bebebe;
+	padding: 7px;
+	margin: 0;
+	-webkit-transition: all .30s ease-in-out;
+	-moz-transition: all .30s ease-in-out;
+	-ms-transition: all .30s ease-in-out;
+	-o-transition: all .30s ease-in-out;
+	outline: 0;
+}
+.s-inline {
+	display: inline;
+	margin-right: 15px;	
+}
+.s-ver-mid {
+	vertical-align: middle;
+}
+.s-dtl-company {
+	display: none;
+	padding: 5px;
+}
+.s-logo {
+	width: 100%;	
+}
+.s-croll-x-570 { 
+	margin-top: 15px;
+	height: 583px;
+	overflow-y: auto;	
+}
+.s-infobox {
+	padding-left: 140px; 	
+	vertical-align: middle;
+	position: relative;
+}
+.s-d-logo {		
+	position: absolute;
+	top: 0; left: 0;
+	width: 120px;
+	height: 100%;
+	line-height: 131px;
+	overflow: hidden;	
+}
+.s-data {
+	position: relative;
+}
+.s-d-img {
+	position: absolute;
+	top: 0;
+	right: 5px;	
+	width: 70px;
+	height: 100%;
+	overflow: hidden;
+	line-height: 70px;
+}
+.s-rgt-logo {
+	width: 100%;	
+}
+.filterData {
+	display: none;
+}
+.s-loading {
+	display: none;
+	position: fixed;
+	top: 150px;
+	left: 50%;
+	margin-left: -8px;
+}

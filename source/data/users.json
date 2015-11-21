@@ -1,0 +1,18 @@
+[
+    {
+        "id": 0, 
+        "username": "user",
+        "password": "123123",
+        "role": "user",
+        "name": "Minh Thiểu teacher", 
+        "type": "1"
+    }, 
+    {
+        "id": 1,
+        "username": "company",
+        "password": "123123",
+        "role": "company",
+        "name": "Mẹ bé Quách An", 
+        "type": "2"
+    }
+]

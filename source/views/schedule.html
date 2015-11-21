@@ -1,0 +1,79 @@
+<div ng-include src="'views/header.html'"></div>
+<div class="main">
+	<div class="container" style="padding-top: 20px; padding-bottom: 30px;">
+		<div ng-if="role=='user'" class="col-md-12 bg-white" style="padding-bottom: 15px; min-height: 600px;">
+			<h3>Job Interviews</h3>
+			<div class="table-responsive">
+				<table class="table table-bordered table-schedule">
+		     		<tbody>
+			     		<tr>
+			     			<td style="padding-top: 10px!important"><h4><strong>Job Title</strong></h4></td>
+			     			<td style="padding-top: 10px!important"><h4><strong>Status</strong></h4></td>
+			     			<td style="padding-top: 10px!important"><h4><strong>Date</strong></h4></td>
+			     			<td style="padding-top: 10px!important"><h4><strong>Time</strong></h4></td>
+			     		</tr>
+			     		
+			     		<tr>
+			     			<td><a href="#/detail"><strong>JAVA JS Developer</strong></a></td>
+			     			<td style="padding-top: 10px!important"> <button class="btn btn-default btn-apply">Live Interview</button></td>
+			     			<td>22/11/2015</td>
+			     			<td>14:30</td>
+			     		</tr>
+			     		
+			     		<tr>
+			     			<td><a href="#/detail"><strong>Senior Sales Trainer</strong></a></td>
+			     			<td style="padding-top: 10px!important"> <button class="btn btn-default btn-apply" disabled="disabled">Live Interview</button></td>
+			     			<td>17/11/2015</td>
+			     			<td>15:30</td>
+			     		</tr>
+			     		<tr>
+			     			<td><a href="#/detail"><strong>Administrative Assistant</strong></a></td>
+			     			<td style="padding-top: 10px!important"> <button class="btn btn-default btn-apply" disabled="disabled">Live Interview</button></td>
+			     			<td>11/11/2015</td>
+			     			<td>16:30</td>
+			     		</tr>
+		     		</tbody>
+	     		</table>
+     		</div>
+		</div>
+		
+		<div ng-if="role=='company'" class="col-md-12 bg-white" style="padding-bottom: 15px; min-height: 600px;">
+			<h3>Job Interviews</h3>
+			
+			<div class="table-responsive">
+				<table class="table table-bordered table-schedule">
+	     		<tbody>
+		     		<tr>
+		     			<td style="padding-top: 10px!important"><h4><strong>Applicants</strong></h4></td>
+		     			<td style="padding-top: 10px!important"><h4><strong>Status</strong></h4></td>
+		     			<td style="padding-top: 10px!important"><h4><strong>Date</strong></h4></td>
+		     			<td style="padding-top: 10px!important"><h4><strong>Time</strong></h4></td>
+		     		</tr>
+		     		
+		     		<tr>
+		     			<td><a href="#"><strong>Nguyen Van Anh</strong></a></td>
+		     			<td style="padding-top: 10px!important"> <button class="btn btn-default btn-apply">Live Interview</button></td>
+		     			<td>22/11/2015</td>
+		     			<td>14:30</td>
+		     		</tr>
+		     		
+		     		<tr>
+		     			<td><a href="#"><strong>Hoang Ngoc Lam</strong></a></td>
+		     			<td style="padding-top: 10px!important"> <button class="btn btn-default btn-apply" disabled="disabled">Live Interview</button></td>
+		     			<td>17/11/2015</td>
+		     			<td>15:30</td>
+		     		</tr>
+		     		<tr>
+		     			<td><a href="#"><strong>Lam Hoang</strong></a></td>
+		     			<td style="padding-top: 10px!important"> <button class="btn btn-default btn-apply" disabled="disabled">Live Interview</button></td>
+		     			<td>11/11/2015</td>
+		     			<td>16:30</td>
+		     		</tr>
+	     		</tbody>
+	     		</table>
+     		</div>
+		</div>
+	</div>
+</div>
+
+<div ng-include src="'views/footer.html'"></div>

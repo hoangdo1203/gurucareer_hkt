@@ -1,0 +1,91 @@
+<ul class="nav navbar-nav navbar-right">
+	<li class="relative">	
+		<div class="popover-add-skill" data-original-title="" title="">
+		</div></li>
+	<li class="hidden-xs"><span class="search-toggle"> </span></li>
+	<li class="dropdown open" style="    margin-top: -22px;margin-right: 20px;">
+	<a style="background: #fff; padding: 10px 20px 20px 0px" ng-click="showMenu = !showMenu" href="" class="dropdown-toggle" data-toggle="dropdown"
+		data-hover="dropdown" aria-expanded="true"> <span class="menu-toggle relative">
+                                 <span class="icon-notification total-notification">1</span>
+                             </span>
+                        </a>
+		<ul ng-if="role!='company'" class="dropdown-menu dropdown-menu-lg" style="margin-top: -15px;;margin-right: 20px;"  ng-hide="showMenu" role="menu">
+			<li role="presentation" class="dropdown-header">
+				<!-- user login --> <a href="#"
+				title="My Career Center"> My Career Center </a></li>
+
+			<li><a href="#" title="Create New Resume"> <i
+					class="fa fa-pencil fa-fw"></i> Create New Resume </a></li>
+
+
+			<li><a href="#" title="My Resumes">
+					<i class="fa fa-file fa-fw"></i> My Resumes
+					</span>
+				</span>
+			</a></li>
+
+
+			<li><a href="#" title="My Jobs">
+					<i class="fa fa-star fa-fw"></i> My Jobs
+					</span>
+				</span>
+			</a></li>
+			
+			<li><a href="#/schedule" title="My Interviews">
+					<i class="fa fa-star fa-fw"></i> My Interviews <span class="badge">1<span>
+						</span>
+					</span>
+				</a>
+			</li>
+
+
+			<li><a href="#"
+				title="Job Alerts"> <i class="fa fa-bell fa-fw"></i> Job
+					Alerts
+			</a></li>
+
+
+			<li><a href="#"
+				title="Employer's Messages"> <i class="fa fa-comment fa-fw"></i>
+					Employer's Messages </a></li>
+
+
+			<li><a href="#" title=""
+				who="" view="" my="" resume=""> <i class="fa fa-user fa-fw"></i>
+					Who View My Resume </a></li>
+
+			<li class="divider"></li>
+			<li role="presentation" class="dropdown-header">
+				<!-- user login --> <a href="#"
+				title="Career Advice" target="blank"> Career Advice </a></li>
+			<li class="divider"></li>
+			<li role="presentation" class="dropdown-header">
+				<!-- user login --> <a href="#"
+				title="My Account"> My Account </a></li>
+			<li class="divider"></li>
+			<li><a href="" ng-click="logout()"><i
+					class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+		</ul>
+		
+		<ul ng-if="role=='company'" class="dropdown-menu dropdown-menu-lg" style="margin-top: -15px;;margin-right: 20px;"  ng-hide="showMenu" role="menu">
+			<li><a href="#" title="Create New Resume"> <i
+					class="fa fa-pencil fa-fw"></i> Create New Job </a></li>
+			<li><a href="#"
+				title="Job Alerts"> <i class="fa fa-bell fa-fw"></i> Job
+					Alerts
+			</a></li>
+			<li><a href="#/schedule" title="My Interviews">
+					<i class="fa fa-star fa-fw"></i> My Interviews <span class="badge">1<span>
+						</span>
+					</span>
+				</a>
+			</li>
+			<li role="presentation" class="dropdown-header">
+				<!-- user login --> <a href="#"
+				title="My Account"> My Account </a></li>
+			<li class="divider"></li>
+			<li><a href="" ng-click="logout()"><i
+					class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+		</ul>
+	</li>
+</ul>
