@@ -290,7 +290,7 @@ $(document).ready(function() {
 			$(".btn-search").trigger("click");
 			$(".btn-search").trigger("click"); // ? note i also don't understand
 		}
-	}, 500);	
+	}, 400);	
 	function convertVnToE(str) { 		
 		str= str.toLowerCase();
 		str= str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a");
