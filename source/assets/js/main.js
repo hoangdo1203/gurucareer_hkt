@@ -184,7 +184,7 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 }
 var lastCM = "";
-var listkey = [/*0*/"xoa", /*1*/"tim kiem", /*2*/"ho so", /*3*/"dong cua so", /*4*/"ket qua 1", /*5*/"ket qua 2", /*6*/"ket qua 3", /*7*/"ket qua 4", /*8*/"ke tiep", /*9*/"ket thuc", /*10*/"chi tiet "];
+var listkey = [/*0*/"xoa", /*1*/"tim kiem", /*2*/"ho so", /*3*/"dong cua so", /*4*/"ket qua 1", /*5*/"ket qua 2", /*6*/"ket qua 3", /*7*/"ket qua 4", /*8*/"ke tiep", /*9*/"ket thuc", /*10*/"chi tiet ", /*11*/"nop don"];
 function controlV(strV){
 	
 	var flagCV = false;
@@ -278,7 +278,9 @@ function controlV(strV){
 				console.log(id);
 				$(id).trigger("click");			
 				flagCV = true;
-			}	
+			} else if(checkCM (str, listkey[11])) { 				
+				$("#apply").trigger("click");
+			}			
 		}
 		
 		//alert("finish");

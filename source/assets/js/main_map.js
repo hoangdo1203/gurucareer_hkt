@@ -330,5 +330,9 @@ $(document).ready(function() {
 	});
 	$(document).on("click", ".btn-finish", function() { 		
 		$(".modal").trigger("click");
-	});	
+	});
+	$(document).on("click", "#apply", function() { 		
+		$("#apply").html("Applier");
+		$("#apply").addClass("btn-interested");
+	});		
 });
