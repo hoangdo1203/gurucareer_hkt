@@ -295,3 +295,25 @@ div#map {
 #4t {
 	width: 400px;
 }
+@media screen and (min-width: 1200px) and (max-width: 1224px) {
+    .seek-job input {
+	    width: 78%;
+	}
+}
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+	.seek-job {
+	    height: 111px;
+	}
+    .seek-job input {
+	    width: 75%;
+	}
+}
+
+@media screen and (min-width: 680px) and (max-width: 1000px) {
+	.seek-job {
+	    height: 111px;
+	}
+    .seek-job input {
+	    width: 70%;
+	}
+}
