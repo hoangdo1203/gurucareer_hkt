@@ -273,11 +273,35 @@ $(document).ready(function() {
 	  });
 	  markers.push(marker);
 	}
+	function addMarker(location) {
+	  var marker = new google.maps.Marker({
+		position: location,
+		map: map
+	  });
+	  markers.push(marker);
+	}
 	
 	/* update */
 	$("#final_span").keypress(function(e) {
 	    if(e.which == 13) {
 	    	$(".btn-search").trigger("click");	    
 	    }
+	});
+	
+	/* CV */
+	$(document).on("click", ".btn-next", function() { 
+		$(".q1").hide();
+		if($("#1a").is(':checked') && $("#1b").is(':checked') && $("#1c").is(':checked')) {
+			return false;
+		}
+		if($("#1a").is(':checked')) {
+			$(".q2").removeClass("hide");
+		}
+		if($("#1b").is(':checked')) {
+			$(".q3").removeClass("hide");
+		}
+		if($("#1c").is(':checked')) {
+			$(".q4").removeClass("hide");
+		}
 	});
 });

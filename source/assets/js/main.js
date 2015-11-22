@@ -181,7 +181,7 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 }
 var lastCM = "";
-var listkey = ["xoa", "tim kiem", "ho so"];
+var listkey = ["xoa", "tim kiem", "ho so", "dong cua so", "ket qua a", "ket qua b", "ket qua c", "ket qua d"];
 function controlV(strV){
 	if (strV == "") {
 		console.dir("text_final rong:"+strV);
@@ -203,6 +203,8 @@ function controlV(strV){
 				$(".btn-search").trigger("click");
 			} else if(checkCM (str, listkey[2])) {
 				$("#s-CV").trigger("click");
+			} else if(checkCM (str, listkey[3])) {
+				$(".modal").trigger("click");
 			}
 		}
 		
