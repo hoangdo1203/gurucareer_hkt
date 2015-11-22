@@ -275,13 +275,15 @@ function controlV(strV){
 				}
 				console.dir('###chi tiet sub_str:'+sub_str);
 				var id = "#id-" + parseInt(sub_str);
+				console.log(id);
 				$(id).trigger("click");			
 				flagCV = true;
 			}	
 		}
 		
 		//alert("finish");
-		if (flagFindCtr != true && !isStrInArr(str, listkey)) {
+		console.log(str);
+		if(flagFindCtr != true && !isStrInArr(str, listkey)) {
 			//document.getElementById("final_span").value = "";
 			$("#final_span").val((text_final));
 			$(".btn-search").trigger("click");
