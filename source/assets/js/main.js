@@ -181,6 +181,7 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 }
 var lastCM = "";
+var listkey = ["xoa", "tim kiem", "ho so"];
 function controlV(strV){
 	if (strV == "") {
 		console.dir("text_final rong:"+strV);
@@ -195,28 +196,37 @@ function controlV(strV){
 			console.dir("sau convertVNtoE");
 			console.dir("--->"+str);
 			console.dir(str.indexOf("xoa"));
-			if(checkCM (str, "xoa")) {
+			if(checkCM (str, listkey[0])) {
 				document.getElementById("final_span").value = "";
-			} else if(checkCM (str, "tim kiem")) {
+			} else if(checkCM (str, listkey[1])) {
 				$(".btn-search").trigger("click");
 				$(".btn-search").trigger("click");
-				
-			} else if(checkCM (str, "ho so")) {
+			} else if(checkCM (str, listkey[2])) {
 				$("#s-CV").trigger("click");
 			}
 		}
 		
 		//alert("finish");
-		if (flagFindCtr != true) {
+		if (flagFindCtr != true && !isStrInArr(str, listkey)) {
 			//document.getElementById("final_span").value = "";
 			$("#final_span").val((text_final));
 			$(".btn-search").trigger("click");
 			$(".btn-search").trigger("click");
+			lastCM = "";
 		}
 		// reset flag
 		flagFindCtr = false;
 		console.dir("finish");
+		
 	}
+}
+function isStrInArr(str, arr) {
+	for (i = 0; i < arr.length; i++) { 
+		if (str.indexOf(arr[i]) != -1) {
+			return true;
+		}
+	}
+	return false;
 }
 function checkCM (str, key) {
 	if(str.indexOf(key) != -1 && lastCM != key) {
