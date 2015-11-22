@@ -271,7 +271,7 @@ div#map {
 	display: none;
 	position: fixed;
 	top: 150px;
-	left: 50%;
+	left: 100%;
 	margin-left: -8px;
 }
 .s-w {
