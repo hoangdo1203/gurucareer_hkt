@@ -270,9 +270,9 @@ div#map {
 .s-loading {
 	display: none;
 	position: fixed;
-	top: 150px;
-	left: 100%;
-	margin-left: -8px;
+    top: 178px;
+    left: 82.5%;
+    margin-left: -8px;
 }
 .s-w {
 	color: #ffffff;

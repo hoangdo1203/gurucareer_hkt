@@ -152,6 +152,7 @@ if (!('webkitSpeechRecognition' in window)) {
     }
   };
   var flagFindCtr = false;
+  var before_interim_transcript = "";
   recognition.onresult = function(event) {
     var interim_transcript = '';
     if (typeof(event.results) == 'undefined') {
@@ -167,9 +168,11 @@ if (!('webkitSpeechRecognition' in window)) {
         interim_transcript += event.results[i][0].transcript;
       }
     }
+	//interim_transcript = interim_transcript.replace(before_interim_transcript);
+	//before_interim_transcript = interim_transcript;
     final_transcript = capitalize(final_transcript);
     final_span.innerHTML = linebreak(final_transcript);
-    interim_span.innerHTML = linebreak(interim_transcript);
+    //interim_span.innerHTML = linebreak(interim_transcript);
 	console.dir("final_transcript:"+final_transcript);
 	console.dir("interim_transcript:"+interim_transcript);
     if (final_transcript || interim_transcript) {
@@ -181,19 +184,27 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 }
 var lastCM = "";
-var listkey = ["xoa", "tim kiem", "ho so", "dong cua so", "ket qua 1", "ket qua 2", "ket qua 3", "ket qua 4", "ke tiep", "ket thuc", "chi tiet"];
+var listkey = [/*0*/"xoa", /*1*/"tim kiem", /*2*/"ho so", /*3*/"dong cua so", /*4*/"ket qua 1", /*5*/"ket qua 2", /*6*/"ket qua 3", /*7*/"ket qua 4", /*8*/"ke tiep", /*9*/"ket thuc", /*10*/"chi tiet "];
 function controlV(strV){
+	
 	var flagCV = false;
 	if (strV == "") {
 		console.dir("text_final rong:"+strV);
-		
+		// reset flag
+		flagFindCtr = false;
+		$(".s-loading").hide();
+		console.dir("finish");
 	}
 	// finish
 	else {
+		$(".s-loading").show();
 		console.dir("final != rong: "+ strV);
 		var text_final = strV;
 		if (flagFindCtr != true) {
+			
 			var str = convertVnToE(text_final);
+			str = str.trim();
+			console.dir('flagFindCtr != true ->chi tiet:'+str);
 			console.dir("sau convertVNtoE");
 			console.dir("--->"+str);
 			console.dir(str.indexOf("xoa"));
@@ -258,7 +269,13 @@ function controlV(strV){
 					flagCV = true;
 				}					
 			}  else if(checkCM (str, listkey[10])) { 
-				$(".modal").trigger("click");			
+				console.dir('###chi tiet:'+str);
+				if(str != null && str != "") {
+					var sub_str = str.replace(listkey[10], "");
+				}
+				console.dir('###chi tiet sub_str:'+sub_str);
+				var id = "#id-" + parseInt(sub_str);
+				$(id).trigger("click");			
 				flagCV = true;
 			}	
 		}
@@ -271,9 +288,7 @@ function controlV(strV){
 			$(".btn-search").trigger("click");
 			lastCM = "";
 		}
-		// reset flag
-		flagFindCtr = false;
-		console.dir("finish");
+		
 		
 	}
 }
@@ -286,10 +301,17 @@ function isStrInArr(str, arr) {
 	return false;
 }
 function checkCM (str, key) {
-	if(str.indexOf(key) != -1 && lastCM != key) {
-		flagFindCtr = true;
-		lastCM = key;
-		return true;
+	if(str.indexOf(key) != -1) {
+		if (lastCM != key) {
+			flagFindCtr = true;
+			lastCM = key;
+			return true;
+		}
+		else {
+			// delete
+			return false;
+		}
+		
 	}
 	return false;
 }
@@ -340,6 +362,10 @@ function emailButton() {
   email_button.style.display = 'none';
   email_info.style.display = 'inline-block';
   showInfo('');
+}
+function restartRecognition () {
+	recognition.stop();
+	recognition.start();
 }
 recognition.start();
 function startButton(event) {
