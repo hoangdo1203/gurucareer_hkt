@@ -181,7 +181,7 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 }
 var lastCM = "";
-var listkey = ["xoa", "tim kiem", "ho so", "dong cua so", "ket qua 1", "ket qua 2", "ket qua 3", "ket qua 4", "ke tiep", "ket thuc"];
+var listkey = ["xoa", "tim kiem", "ho so", "dong cua so", "ket qua 1", "ket qua 2", "ket qua 3", "ket qua 4", "ke tiep", "ket thuc", "chi tiet"];
 function controlV(strV){
 	var flagCV = false;
 	if (strV == "") {
@@ -253,13 +253,14 @@ function controlV(strV){
 					flagCV = true;
 				}					
 			} else if(checkCM (str, listkey[9])) {
-				if(flagCV != true) { 
-					if(flagCV != true) { 					
-						$(".modal").trigger("click");			
-						flagCV = true;
-					}
+				if(flagCV != true) { 				
+					$(".modal").trigger("click");			
+					flagCV = true;
 				}					
-			}			
+			}  else if(checkCM (str, listkey[10])) { 
+				$(".modal").trigger("click");			
+				flagCV = true;
+			}	
 		}
 		
 		//alert("finish");
