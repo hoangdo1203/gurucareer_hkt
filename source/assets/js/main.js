@@ -178,11 +178,15 @@ if (!('webkitSpeechRecognition' in window)) {
     if (final_transcript || interim_transcript) {
       //showButtons('inline-block');
     }
-	
-	controlV(interim_transcript);
+	if (final_transcript != '') {
+		final_transcript = final_transcript.replace(backft, "");
+		backft = final_transcript;
+	}
+	controlV(final_transcript);
 	
   };
 }
+var backft = "";
 var lastCM = "";
 var listkey = [/*0*/"xoa", /*1*/"tim kiem", /*2*/"ho so", /*3*/"dong cua so", /*4*/"ket qua 1", /*5*/"ket qua 2", /*6*/"ket qua 3", /*7*/"ket qua 4", /*8*/"ke tiep", /*9*/"ket thuc", /*10*/"chi tiet ", /*11*/"nop don"];
 function controlV(strV){
@@ -216,6 +220,7 @@ function controlV(strV){
 			} else if(checkCM (str, listkey[2])) {
 				$("#s-CV").trigger("click");				
 			} else if(checkCM (str, listkey[3])) {
+				
 				$(".modal").trigger("click");
 			} else if(checkCM (str, listkey[4])) {
 				if(flagCV != true) {
@@ -293,7 +298,11 @@ function controlV(strV){
 			lastCM = "";
 		}
 		
-		
+		console.dir("text_final rong:"+strV);
+		// reset flag
+		flagFindCtr = false;
+		$(".s-loading").hide();
+		console.dir("finish");
 	}
 }
 function isStrInArr(str, arr) {
@@ -309,6 +318,7 @@ function checkCM (str, key) {
 		if (lastCM != key) {
 			flagFindCtr = true;
 			lastCM = key;
+			console.dir("##########find key:"+key);
 			return true;
 		}
 		else {
@@ -416,3 +426,92 @@ function convertVnToE(str) {
 	str= str.replace(/^\-+|\-+$/g,"");
 	return str;
 }
+//HACK START//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+var FancyWebSocket = function(url)
+{
+	var callbacks = {};
+	var ws_url = url;
+	var conn;
+
+	this.bind = function(event_name, callback){
+		callbacks[event_name] = callbacks[event_name] || [];
+		callbacks[event_name].push(callback);
+		return this;// chainable
+	};
+
+	this.send = function(event_name, event_data){
+		this.conn.send( event_data );
+		return this;
+	};
+
+	this.connect = function() {
+		if ( typeof(MozWebSocket) == 'function' )
+			this.conn = new MozWebSocket(url);
+		else
+			this.conn = new WebSocket(url);
+
+		// dispatch to the right handlers
+		this.conn.onmessage = function(evt){
+			dispatch('message', evt.data);
+		};
+
+		this.conn.onclose = function(){dispatch('close',null)}
+		this.conn.onopen = function(){dispatch('open',null)}
+	};
+
+	this.disconnect = function() {
+		this.conn.close();
+	};
+
+	var dispatch = function(event_name, message){
+		var chain = callbacks[event_name];
+		if(typeof chain == 'undefined') return; // no callbacks for this event
+		for(var i = 0; i < chain.length; i++){
+			chain[i]( message )
+		}
+	}
+};
+////////////////////
+var Server;
+function log( text ) {
+	console.dir(text);
+}
+/*
+function send( text ) {
+	Server.send( 'message', text );
+}
+*/
+$(document).ready(function() {
+	log('Connecting...');
+	Server = new FancyWebSocket('ws://192.168.1.133:9300');
+/*
+	$('#message').keypress(function(e) {
+		if ( e.keyCode == 13 && this.value ) {
+			log( 'You: ' + this.value );
+			send( this.value );
+
+			$(this).val('');
+		}
+	});
+*/
+	//Let the user know we're connected
+	Server.bind('open', function() {
+		log( "Connected." );
+	});
+
+	//OH NOES! Disconnection occurred.
+	Server.bind('close', function( data ) {
+		log( "Disconnected." );
+	});
+
+	//Log any messages sent from server
+	Server.bind('message', function( payload ) {
+		log( payload );
+		//alert(payload);
+		controlV(payload);
+		//alert(hkkeyword);
+	});
+
+	Server.connect();
+});
+//HACK END//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
