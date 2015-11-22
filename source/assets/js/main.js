@@ -180,7 +180,7 @@ if (!('webkitSpeechRecognition' in window)) {
 	
   };
 }
-
+var lastCM = "";
 function controlV(strV){
 	if (strV == "") {
 		console.dir("text_final rong:"+strV);
@@ -195,19 +195,14 @@ function controlV(strV){
 			console.dir("sau convertVNtoE");
 			console.dir("--->"+str);
 			console.dir(str.indexOf("xoa"));
-			if (str.indexOf("xoa")!= -1) {
-				console.dir("tim thay: thuc hien xoa");
+			if(checkCM (str, "xoa")) {
 				document.getElementById("final_span").value = "";
-				flagFindCtr = true;
-			}
-			else if (str.indexOf("tim kiem") != -1) {
+			} else if(checkCM (str, "tim kiem")) {
 				$(".btn-search").trigger("click");
 				$(".btn-search").trigger("click");
-				flagFindCtr = true;
-			} else if(str.indexOf("ho so") != -1) {
-				console.log("test ho so");
+				
+			} else if(checkCM (str, "ho so")) {
 				$("#s-CV").trigger("click");
-				flagFindCtr = true;
 			}
 		}
 		
@@ -222,6 +217,14 @@ function controlV(strV){
 		flagFindCtr = false;
 		console.dir("finish");
 	}
+}
+function checkCM (str, key) {
+	if(str.indexOf(key) != -1 && lastCM != key) {
+		flagFindCtr = true;
+		lastCM = key;
+		return true;
+	}
+	return false;
 }
 function upgrade() {
   start_button.style.visibility = 'hidden';
