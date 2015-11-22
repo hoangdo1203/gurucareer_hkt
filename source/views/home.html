@@ -52,39 +52,32 @@
 	        <div class="col-md-5">
 	            <!--Body content-->
 	            <br>
-	            <div class="seek-job">
+	            <div class="seek-job clearfix">
 	                <div  class="form-inline">
-	                    <div  class="col-md-12">
-	                        <span id="interim_span" class="interim" style="display:none;"></span>
-	                        <input id="final_span" class="final" ng-model="searchModel" type="text" placeholder="Enter job title, position, relevant skills,..."/>
-	                        <button id="start_button" onclick="startButton(event)" style="display: inline-block;">
-	                        <img id="start_img" src="assets/img/mic.gif" alt="Start"></button>	                        	                                               
-	                    </div>	                    	 
-	                </div>
-	                <div  class="form-inline">
-	                  
-	                </div>
-	                <div  class="form-inline clearfix">
-	                    <div  class="col-md-12">
-	                        <button type="button" class="btn-search btn btn-primary pull-right" ng-click="searchJob()">Search</button>
-	                    </div>
-	                </div>	               
-	                <div class="s-w col-md-12 s-left"><b>Popular keywords:</b> Manager, Java, .NET, Android, iOS, QA</div>
-	            </div>
-	
-	
-	
+		                <div  class="col-md-12">
+		                        <span id="interim_span" class="interim" style="display:none;"></span>
+		                        <input id="final_span" class="final" ng-model="searchModel" type="text" placeholder="Enter job title, position, relevant skills,..."/>
+		                        <button id="start_button" onclick="startButton(event)" style="display: inline-block;">
+		                        <img id="start_img" src="assets/img/mic.gif" alt="Start"></button>	         
+		                        <button type="button" class="btn-search btn btn-primary pull-right" ng-click="searchJob()">Search</button>
+		                    
+		                </div>	               
+		                <div class="s-w col-md-12 s-left"><b>Popular keywords:</b> Manager, Java, .NET, Android, iOS, QA</div>
+	            	</div>
+				</div>
+
 	            <div class="datas right clearfix s-croll-x-570">
 		        <!--  div ng-repeat="data in filteredData = (datas|filter:search|limitTo:10)" class="thumbnail s-data"-->
-		        <div ng-repeat="data in filteredData = (datas|filter:filterSearch|limitTo:10)" class="thumbnail s-data">          
-			          <a href="" ng-click="openCompany(data.id)">{{data.id}}<label>.</label> {{data.name}}</a>
-			          <div><label>{{data.position}}</label></div>
-			          <div>Posted: {{data.posted}} | Views: {{data.views}}</div>
-			          <div class="s-d-img"><img ng-src="{{data.imageUrl}}" class="s-rgt-logo" /></div>			  
-		          <div class="clearfix"></div>
-		        </div>        
-		      </div> 
-			  <textarea class="filterData">{{filteredData}}</textarea>    
+			        <div ng-repeat="data in filteredData = (datas|filter:filterSearch|limitTo:10)" class="thumbnail s-data">          
+				          <a href="" ng-click="openCompany(data.id)">{{data.id}}<label>.</label> {{data.name}}</a>
+				          <div><label>{{data.position}}</label></div>
+				          <div>Posted: {{data.posted}} | Views: {{data.views}}</div>
+				          <div class="s-d-img"><img ng-src="{{data.imageUrl}}" class="s-rgt-logo" /></div>			  
+			          	   <div class="clearfix"></div>
+			          </div>  
+		        </div>
+
+	        	<textarea class="filterData">{{filteredData}}</textarea>    
 	            <ul class="pagination">
 	                <li><a>Previous</a></li>
 	                <li><a>1</a></li>
@@ -98,7 +91,7 @@
 	                <li><a>...</a></li>
 	                <li><a>Next</a></li>
 	            </ul>
-	        </div>
+			</div>
 	        <img src="assets/img/loading.gif" class="s-loading" />
 	        <input type="button" id="s-CV" ng-click="openCV(role)" class="hide" />
 	    </div>

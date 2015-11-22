@@ -41,7 +41,7 @@ footer a {
 .seek-job{
 	padding:15px 10px 10px 15px;
 	background: #00b9f2;
-	height: 136px;
+	height: 95px;
 }
 .seek-job .form-inline div{
 	padding: 5px 5px 5px 0px;
@@ -56,7 +56,9 @@ footer a {
 	background-color: #e38008;
     border: 1px solid #fff;
     font-weight: 700;
-    width: 200px;
+    width: 75px;
+    border-radius: 0px;
+    padding-top: 5px;
 }
 .thumbnail{
 	border-top: none;
@@ -160,13 +162,17 @@ padding-left: 2px;
 	padding-top: 25px !important;
 }
 #start_button{
-	border-radius: 10px;
-    margin-left: 15px;
+	border: 0px;
+    margin: 0px;
+    padding: 0px;
+    margin-left: -35px;
 }
 #start_button #start_img{
+	background-color: #fff;
 	width: 28px;
-    margin-left: 8px;
-    margin-right: 8px;
+}
+#start_button #start_img:after{
+	border: 0;
 }
 .detail-frame{
 	padding: 0px 5px 15px 0px;margin-left:15px;border:0; border-bottom:1px solid #eee;
@@ -210,8 +216,8 @@ div#map {
 }
 .s-croll-x-570 { 
 	margin-top: 15px;
-	height: 583px;
-	overflow-y: auto;	
+	height: 623px;
+	overflow-y: hidden;	
 }
 .s-infobox {
 	padding-left: 140px; 	
