@@ -279,12 +279,5 @@ $(document).ready(function() {
 	    if(e.which == 13) {
 	    	$(".btn-search").trigger("click");	    
 	    }
-	});	
-	
-	$(document).on("click", "#s-s", function() {
-		$("#s-CV").trigger("click");
-	});
-	$(document).on("click", "#s-CV", function() {
-		console.log("heo heo jquery!");	
 	});
 });

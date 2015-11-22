@@ -50,7 +50,7 @@ app.controller('homeController', function($scope, $http, $modal, $routeParams, C
 			}
 		});
 
-	  var modalInstance = $modal.open({
+	  var openCompanyModal = $modal.open({
 	    templateUrl: 'views/view-detail.html',
 	    controller: 'modalInstanceCtrl', // call controller 
 	    size: 'lg',
@@ -64,7 +64,7 @@ app.controller('homeController', function($scope, $http, $modal, $routeParams, C
 
 	$scope.openSchedule = function(role){
 		$scope.showMenu = !$scope.showMenu;
-		var modalInstance = $modal.open({
+		var openScheduleModal = $modal.open({
 	    templateUrl: 'views/schedule.html',
 	    controller: 'modalInstanceCtrl', // call controller 
 	    size: 'lg',
@@ -77,10 +77,9 @@ app.controller('homeController', function($scope, $http, $modal, $routeParams, C
 	}
 	
 	$scope.openCV = function(role) { 
-		console.log("heo heo");
-		var modalInstance = $modal.open({
+		var openCVModal = $modal.open({
 	    templateUrl: 'views/CV.html',
-	    controller: 'modalInstanceCtrl', // call controller 
+	    //controller: 'modalInstanceCtrl', // call controller 
 	    size: 'lg',
 	    resolve: {
 	          data: function () {

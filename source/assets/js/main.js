@@ -204,6 +204,10 @@ function controlV(strV){
 				$(".btn-search").trigger("click");
 				$(".btn-search").trigger("click");
 				flagFindCtr = true;
+			} else if(str.indexOf("ho so") != -1) {
+				console.log("test ho so");
+				$("#s-CV").trigger("click");
+				flagFindCtr = true;
 			}
 		}
 		
