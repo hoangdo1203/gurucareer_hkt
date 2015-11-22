@@ -82,7 +82,7 @@ app.controller('homeController', function($scope, $http, $modal, $routeParams, $
 	$scope.openCV = function(role) { 
 		var openCVModal = $modal.open({
 	    templateUrl: 'views/CV.html',
-	    //controller: 'modalInstanceCtrl', // call controller 
+	    controller: 'modalInstanceCtrl', // call controller 
 	    size: 'lg',
 	    resolve: {
 	          data: function () {
