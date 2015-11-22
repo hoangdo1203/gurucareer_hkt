@@ -188,7 +188,7 @@ if (!('webkitSpeechRecognition' in window)) {
 }
 var backft = "";
 var lastCM = "";
-var listkey = [/*0*/"xoa", /*1*/"tim kiem", /*2*/"ho so", /*3*/"dong cua so", /*4*/"ket qua 1", /*5*/"ket qua 2", /*6*/"ket qua 3", /*7*/"ket qua 4", /*8*/"ke tiep", /*9*/"ket thuc", /*10*/"chi tiet ", /*11*/"nop don", /*12*/"ket qua"];
+var listkey = [/*0*/"xoa", /*1*/"tim kiem", /*2*/"ho so", /*3*/"dong cua so", /*4*/"ket qua 1", /*5*/"ket qua 2", /*6*/"ket qua 3", /*7*/"ket qua 4", /*8*/"ke tiep", /*9*/"ket thuc", /*10*/"chi tiet ", /*11*/"nop don", /*12*/"phong van"];
 function controlV(strV){
 	
 	var flagCV = false;
