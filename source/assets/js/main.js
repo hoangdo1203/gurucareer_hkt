@@ -181,8 +181,9 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 }
 var lastCM = "";
-var listkey = ["xoa", "tim kiem", "ho so", "dong cua so", "ket qua a", "ket qua b", "ket qua c", "ket qua d"];
+var listkey = ["xoa", "tim kiem", "ho so", "dong cua so", "ket qua 1", "ket qua 2", "ket qua 3", "ket qua 4", "ke tiep", "ket thuc"];
 function controlV(strV){
+	var flagCV = false;
 	if (strV == "") {
 		console.dir("text_final rong:"+strV);
 		
@@ -202,10 +203,63 @@ function controlV(strV){
 				$(".btn-search").trigger("click");
 				$(".btn-search").trigger("click");
 			} else if(checkCM (str, listkey[2])) {
-				$("#s-CV").trigger("click");
+				$("#s-CV").trigger("click");				
 			} else if(checkCM (str, listkey[3])) {
 				$(".modal").trigger("click");
-			}
+			} else if(checkCM (str, listkey[4])) {
+				if(flagCV != true) {
+					if($('.q1').hasClass("active")) 
+						$('#1a').prop('checked', true);
+					if($('.q2').hasClass("active"))
+						$('#2a').prop('checked', true);
+					if($('.q3').hasClass("active"))
+						$('#3a').prop('checked', true);					
+					flagCV = true;
+				}					
+			}  else if(checkCM (str, listkey[5])) {
+				if(flagCV != true) {
+					if($('.q1').hasClass("active")) 
+						$('#1b').prop('checked', true);
+					if($('.q2').hasClass("active"))
+						$('#2b').prop('checked', true);
+					if($('.q3').hasClass("active"))
+						$('#3b').prop('checked', true);					
+					flagCV = true;
+				}					
+			}  else if(checkCM (str, listkey[6])) {
+				if(flagCV != true) {
+					if($('.q1').hasClass("active")) 
+						$('#1c').prop('checked', true);
+					if($('.q2').hasClass("active"))
+						$('#2c').prop('checked', true);
+					if($('.q3').hasClass("active"))
+						$('#3c').prop('checked', true);					
+					flagCV = true;
+				}					
+			} else if(checkCM (str, listkey[7])) {
+				if(flagCV != true) { 					
+					$(".modal").trigger("click");				
+					flagCV = true;
+				}					
+			} else if(checkCM (str, listkey[8])) {
+				if(flagCV != true) { 
+					if($('.q1').hasClass("active")) 
+						$(".btn-next-1").trigger("click");		
+					if($('.q2').hasClass("active"))
+						$(".btn-next-2").trigger("click");		
+					if($('.q3').hasClass("active"))
+						$(".btn-next-3").trigger("click");
+							
+					flagCV = true;
+				}					
+			} else if(checkCM (str, listkey[9])) {
+				if(flagCV != true) { 
+					if(flagCV != true) { 					
+						$(".modal").trigger("click");			
+						flagCV = true;
+					}
+				}					
+			}			
 		}
 		
 		//alert("finish");
