@@ -58,10 +58,24 @@
 		                        <span id="interim_span" class="interim" style="display:none;"></span>
 		                        <input id="final_span" class="final" ng-model="searchModel" type="text" placeholder="Enter job title, position, relevant skills,..."/>
 		                        <button id="start_button" onclick="startButton(event)" style="display: inline-block;">
-		                        <img id="start_img" src="assets/img/mic.gif" alt="Start"></button>	         
+
+		                        <script type="text/ng-template" id="tooltip">
+		                        	<div class="triangle"></div>
+				    				<div class="tooltip-keyword">
+				    					<span>Keyword: {{keywords_search}}</span></div>
+				  				</script>
+									
+								<img id="start_img" ns-popover 
+							    ns-popover-template="tooltip"
+					            ns-popover-trigger="mouseenter" 
+					            ns-popover-theme="ns-popover-tooltip-theme" 
+					            ns-popover-timeout="0.1"
+					         	ng-src="assets/img/mic.gif" alt="Start"/>
+
+		                    </button>	         
 		                        <button type="button" class="btn-search btn btn-primary pull-right" ng-click="searchJob()">Search</button>
 		                    
-		                </div>	               
+		                </div>	            
 		                <div class="s-w col-md-12 s-left"><b>Popular keywords:</b> Manager, Java, .NET, Android, iOS, QA</div>
 	            	</div>
 				</div>

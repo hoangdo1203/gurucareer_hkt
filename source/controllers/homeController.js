@@ -1,4 +1,7 @@
-app.controller('homeController', function($scope, $http, $modal, $routeParams, CommonSV) {
+app.controller('homeController', function($scope, $http, $modal, $routeParams, $sce, CommonSV) {
+	
+	$scope.keywords_search = keywords_search;
+
 	if(CommonSV.getItem('role') == undefined)
 		CommonSV.logout();
 	else
